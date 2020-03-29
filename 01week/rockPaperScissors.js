@@ -13,10 +13,26 @@ const rl = readline.createInterface({
 
 // the function that will be called by the unit test below
 const rockPaperScissors = (hand1, hand2) => {
-
+    
   // Write code here
   // Use the unit test to see what is expected
-
+   if(hand1 === hand2){
+     return "game is a tie"
+   } else if(hand1 === "rock" && hand2 === "paper"){
+     return "hand two wins"
+   } else if(hand1==="paper" && hand2 ==="scissors"){
+     return"hand two wins"
+   }else if(hand1 === "scissors" && hand2 ==="rock"){
+     return "hand two wins"
+   } else if(hand1 === "paper" && hand2 === "rock"){
+     return "hand one wins"
+   }else if(hand1 === "scissors" && hand2 ==="paper"){
+     return "hand one wins"
+   } else if(hand1 ==="rock" && hand2 ==="scissors"){
+     return "hand one wins"
+   } else {
+     return "invalid entry. Please enter ROCK,PAPER,or SCISSORS"
+   }
 }
 
 // the first function called in the program to get an input from the user
@@ -25,7 +41,7 @@ const rockPaperScissors = (hand1, hand2) => {
 function getPrompt() {
   rl.question('hand1: ', (answer1) => {
     rl.question('hand2: ', (answer2) => {
-      console.log( rockPaperScissors(answer1, answer2) );
+      console.log(rockPaperScissors(answer1.toLowerCase(), answer2.toLowerCase()));
       getPrompt();
     });
   });
