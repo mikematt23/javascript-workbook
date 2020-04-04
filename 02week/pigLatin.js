@@ -11,7 +11,25 @@ const rl = readline.createInterface({
 const pigLatin = (word)  => {
 
   // Your code here
- 
+  let vowels = "aeiou"
+  if (
+    word.charAt(0) === "a" ||
+    word.charAt(0) === "e" ||
+    word.charAt(0) === "i" ||
+    word.charAt(0) === "o" ||
+    word.charAt(0) === "u"
+  ) {
+    return word + "yay"
+  } else {
+     for(let i =0; i<word.length; i++){
+       if (vowels.includes(word[i]) === true) {
+         let result = word.substring(i) + word.substring(i,0) + "ay"
+         return result
+       }
+     } 
+     return "Please enter a word"
+  }
+}
 
 
 const getPrompt = () => {
