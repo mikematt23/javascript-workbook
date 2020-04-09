@@ -2,10 +2,12 @@
 
 const assert = require('assert');
 const readline = require('readline');
+
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
+
 let board = [
   [' ', ' ', ' '],
   [' ', ' ', ' '],
@@ -85,24 +87,24 @@ function checkForWin() {
   if (diagonalResult){
     console.log(diagonalPiece)
   }
-  
 }
 
 function ticTacToe(row, column) {
   // Your code here
 
-let check = board[row] [column];
+  let check = board[row][column];
 
-if(check.includes("X" || check.includes("O"))){
-  console.log('invalid move')
-} else {
-  board[row][column] = playerTurn
-  if(playerTurn === "X"){
-    playerTurn = "O"
+  if(check.includes("X" || check.includes("O"))){
+    console.log('invalid move')
   } else {
-    playerTurn = "X"
-  }
-}  checkForWin();
+    board[row][column] = playerTurn
+    if(playerTurn === "X"){
+      playerTurn = "O"
+    } else {
+      playerTurn = "X"
+    }
+  } 
+  checkForWin();
 }
 
 function getPrompt() {
