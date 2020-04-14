@@ -14,6 +14,7 @@ div{
   align-items: center;
   height: 55%;
   padding: 1%;
+  /* box-shadow: rgb(63, 63, 63) 20px 20px 5px; */
 }
 .result{
   margin-top: 5%;
@@ -26,12 +27,14 @@ input{
   border: solid green 1px;
 }
 section{
-  box-shadow: rgb(68, 68, 68)5px 5px 5px;
+ 
   background-color: cornsilk;
-  
+   transition: 0s box-shadow;
 }
-button{
-  border: solid yellow 1px;
+section:hover{
+  box-shadow: rgb(63, 63, 63) 10px 10px 10px;
+  transition-duration: .5s;
+  
 }
 h1{
   font-family:"Comic Sans MS", cursive, sans-serif;
@@ -46,6 +49,7 @@ p{
 #result{
    font-size: 165%;
 }
+
 .blinking{
   animation:blinkingText 2.5s infinite;
 }
