@@ -21,7 +21,7 @@ const pigLatin = (word)  => {
   ) {
     return word + "yay"
   } else {
-     for(let i =0; i<word.length; i++){
+     for(let i =0; i < word.length; i++){
        if (vowels.includes(word[i]) === true) {
          let result = word.substring(i) + word.substring(i,0) + "ay"
          return result

@@ -1,0 +1,57 @@
+div{
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(255, 143, 102);
+}
+.userInput{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 55%;
+  padding: 1%;
+}
+.result{
+  margin-top: 5%;
+  display: flex;
+  justify-content: space-evenly;
+  height: 20%;
+  width: 50%;
+}
+input{
+  border: solid green 1px;
+}
+section{
+  box-shadow: rgb(68, 68, 68)5px 5px 5px;
+  background-color: cornsilk;
+  
+}
+button{
+  border: solid yellow 1px;
+}
+h1{
+  font-family:"Comic Sans MS", cursive, sans-serif;
+  font-size: 150%;
+}
+h3{
+  font-family: "Comic Sans MS", cursive, sans-serif;
+}
+p{
+  font-family: "Comic Sans MS", cursive, sans-serif;
+}
+#result{
+   font-size: 165%;
+}
+.blinking{
+  animation:blinkingText 2.5s infinite;
+}
+@keyframes blinkingText{
+  0%{     color: #000;    }
+  49%{    color: #000; }
+  99%{    color:transparent;  }
+  100%{   color: #000;    }
+}
