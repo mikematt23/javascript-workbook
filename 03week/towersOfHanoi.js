@@ -36,7 +36,7 @@ function movePiece(startStack,endStack, result) {
   }
 }
 
-function isLegal(startStack, endStack) {
+function isLegal(startStack, endStack){
   // Your code here
   let r = false;
   let lastFrom = startStack.pop();
