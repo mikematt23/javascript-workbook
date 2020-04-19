@@ -28,15 +28,33 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-function generateHint() {
+function generateHint(guess) {
   // your code here
+  for(let i = 0; i < solution.length;i++) {
+    if(solution[i] === guess[i]){
+      console.log("you got one")
+    } else if(guess.includes(solution[i])){
+      console.log("You got one right in the wrong place")
+    } else {
+      console.log("no matches")
+    }
+  }
 }
 
 function mastermind(guess) {
   solution = 'abcd'; // Comment this out to generate a random solution
   // your code here
-}
+  guess.toLowerCase();
+  if(guess.length != 4) {
+     console.log("please enter a guess of 4 characters. A-H")
+  } else if(guess.toString() === solution) {
+    console.log("you won")
+    getPrompt();
+  } else {
+    generateHint(guess);
+  }
 
+}
 
 function getPrompt() {
   rl.question('guess: ', (guess) => {
