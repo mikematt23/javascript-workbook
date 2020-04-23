@@ -26,18 +26,19 @@
    gender : "female"
  }
 
-// let person = persons.birthDate.slice(7);
-// console.log(person)
-// let d;
-// for(d in persons){
+let person = persons.birthDate.slice(7);
+console.log(person)
+let d;
+for(d in persons){
   
-//  if(d.birthDate % 2 === 0){
-
-//    return console.log("odd")
-//  } else {
-//    return console.log("even")
-//  }
-// }
+ if(parseInt(person) % 2 === 0){
+   console.log(person)
+   console.log("even")
+ } else {
+   console.log(person)
+   console.log("odd")
+ }
+}
 
 class human{
   constructor(firstN, lastN, birthDay, gender){
@@ -50,20 +51,20 @@ class human{
 
 let john = new human("John","Smith","May 9, 1992", "Male");
 let mary = new human("Mary","Maze", "June 9, 1988","Female");
-let mike = new human("Mike", "Matt", "Sept 19, 1989","Male")
-let jane = new human("Jane", "Doe", "Dec 19, 2000","Female")
+let mike = new human("Mike", "Matt", "Sept 19, 1989","Male");
+let jane = new human("Jane", "Doe", "Dec 19, 2000","Female");
 
-let people = [john,mike,mary,jane]
+let people = [john,mike,mary,jane];
 
 let info = people.map(x => {
-  console.log(`this is ${x.name} ${x.lastName} they were born ${x.birthDay} they are a ${x.gender}`)
+  console.log(`this is ${x.name} ${x.lastName}, they were born ${x.birthDay}, they are a ${x.gender}`);
 })
 
 let onlyMales = people.filter(x => {
   if(x.gender === "Male"){
-    console.log(`${x.name} is a male`); // if I put return here and then run the code on line 70 i get an array 
-    //return `${x.name} is a male`
-  }                                       //with 2 objects not the string a
+    console.log(`${x.name} is a male`); // if I put return here and then run the code on line 87 i get an array 
+    //return `${x.name} is a male`      //with 2 objects not the string 
+  }                                        
 })
 
 let bornBefore = people.filter(x => {
@@ -78,7 +79,7 @@ let bornBefore = people.filter(x => {
     date = x.birthDay.slice(8).trim()
   }
 
-  if(date > 1990){
+  if(date < 1990){
     console.log(`${x.name} was born before 1990 : ${x.birthDay} `)
   }
 })
