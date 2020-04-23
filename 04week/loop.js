@@ -39,11 +39,6 @@
 //  }
 // }
 
-
-
-
-
-
 class human{
   constructor(firstN, lastN, birthDay, gender){
     this.name = firstN;
@@ -55,11 +50,14 @@ class human{
 
 let john = new human("John","Smith","May 9, 1992", "Male");
 let mary = new human("Mary","Maze", "June 9, 1988","Female");
-let mike = new human("Mike", "Matt", "Sept 9, 1989","Male")
-let jane = new human("Jane", "Doe", "Dec 9, 2000","Female")
+let mike = new human("Mike", "Matt", "Sept 19, 1989","Male")
+let jane = new human("Jane", "Doe", "Dec 19, 2000","Female")
 
 let people = [john,mike,mary,jane]
 
+let info = people.map(x => {
+  console.log(`this is ${x.name} ${x.lastName} they were born ${x.birthDay} they are a ${x.gender}`)
+})
 
 let onlyMales = people.filter(x => {
   if(x.gender === "Male"){
@@ -69,11 +67,20 @@ let onlyMales = people.filter(x => {
 })
 
 let bornBefore = people.filter(x => {
- let date = x.birthDay.slice(7).trim()
- if(date < 1990){
-   console.log(`${x.name} was born before 1990 : ${x.birthDay} `)
-   //return `${x.name} was born before 1990 : ${x.birthDay}`
- }
+  let date;
+  if(x.birthDay.length === 11){
+    date = x.birthDay.slice(6).trim()
+  
+  }else if (x.birthDay.length === 12){
+    date = x.birthDay.slice(7).trim()
+
+  }else if (x.birthDay.length === 13){
+    date = x.birthDay.slice(8).trim()
+  }
+
+  if(date > 1990){
+    console.log(`${x.name} was born before 1990 : ${x.birthDay} `)
+  }
 })
 
 //console.log(onlyMales);
