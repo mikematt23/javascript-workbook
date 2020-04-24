@@ -31,7 +31,7 @@ console.log(person)
 let d;
 for(d in persons){
   
- if(parseInt(person) % 2 === 0){
+ if(person % 2 === 0){
    console.log(person)
    console.log("even")
  } else {
