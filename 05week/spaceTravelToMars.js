@@ -21,11 +21,13 @@ class CrewMember{
        if(this.ship == null){
          return `${this.name} has NOT been put on a ship`
        } else {
+        this.ship = Ship;
          return `${this.name} is a ${this.job} and is on  ${this.ship.name}`
        }
   }
 }
 
+console.log(this.enterShip())
 
 class Ship{
   constructor(name,type, ability){
