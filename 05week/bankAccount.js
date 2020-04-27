@@ -24,7 +24,8 @@ class BankAccount{
       console.log("cant add zero or less money")
       return `cant add negative or no money`
     } else {
-      let Amount = new transaction(null, amount, this.owner)
+      let date = new Date()
+      let Amount = new transaction(date, amount, this.owner)
       this.transactionList.push(Amount)
     }
   }
@@ -35,7 +36,8 @@ class BankAccount{
       balance = balance + this.transactionList[i].amount;
     }
     if (amount < balance ){
-      let Amount = new transaction(null,(-amount), payee)
+      let date = new Date()
+      let Amount = new transaction(date,(-amount), payee)
       this.transactionList.push(Amount)
     } else {
       console.log(`Dont have enough money`)
