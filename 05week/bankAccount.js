@@ -34,7 +34,6 @@ class BankAccount{
     for(let i = 0; i < this.transactionList.length; i++){
       balance = balance + this.transactionList[i].amount;
     }
-     console.log(`inside balance() ${balance}`)
     if (amount < balance ){
       let Amount = new transaction(null,(-amount), payee)
       this.transactionList.push(Amount)
