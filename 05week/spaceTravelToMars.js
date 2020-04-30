@@ -17,34 +17,35 @@ class CrewMember{
     this.specialSkill = specialSkill;
     this.ship = null
   }
-  enterShip(){
-       if(this.ship == null){
-         return `${this.name} has NOT been put on a ship`
-       } else {
-        this.ship = Ship;
-         return `${this.name} is a ${this.job} and is on  ${this.ship.name}`
-       }
+  enterShip(ship){
+    if(ship.missionStatement()){
+      ship.crew.push(this)
+      this.ship = ship;
+      return `${this.name} has a job of ${this.job} and is asigned to ${this.ship.name} and that ship
+      is a type ${this.ship.type}`
+    } else {
+      return
+    }
   }
 }
-
-console.log(this.enterShip())
-
 class Ship{
-  constructor(name,type, ability){
+  constructor(name,type,ability){
     this.name = name;
     this.type = type;
     this.ability = ability
-    this.crewList =[];
+    this.crew =[];
   }
-  missionStatement(CrewMember){
+  missionStatement(){
+    for(let i = 0; i<this.crew;i++){}
     if(CrewMember.job === this.type){
-      this.crewList.push(CrewMember)
+      return this.ability
     } else {
       return  "Can't perform a mission yet."
     }
   }
 }
 
+let Gti = new Ship()
 
 //tests
 if (typeof describe === 'function'){
