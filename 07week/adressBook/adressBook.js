@@ -11,14 +11,13 @@ let people = function(){
     return response.json()
   }) 
   .then(function(data){
-     //console.log(data)
      processContacts(data.results)
   })
 }
+
 let friendsList = document.getElementById("friends")
 
 function processContacts(contacts){
-  //console.log(contacts)
   contacts.forEach(function(contact){
     let firstName = contact.name.first
     let lastName = contact.name.last
@@ -32,7 +31,7 @@ function processContacts(contacts){
 
     friend.addEventListener("mouseenter", function(){
      let city = contact.location.city
-     friend.innerText = `This Person Lives In The City Of ${city}`
+     friend.innerText = `This Person Lives In The City Of : ${city}`
      friend.style.color = "orange"
      friend.style.fontWeight = "bold"
      friend.appendChild(button)
@@ -53,7 +52,6 @@ function processContacts(contacts){
 }
 
 function deleteButton(){
-  //console.log("inside delete function",contact)
   let dButton = document.createElement("button");
   dButton.innerText = "delete";
   dButton.classList.add("delete")
