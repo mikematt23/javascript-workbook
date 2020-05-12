@@ -64,6 +64,18 @@ class player {
 }
 class teammate {
   constructor(){}
+  joinTeam(){
+    playerArray.forEach(function(play){
+      if(joinRed(play)){
+        play.team = "red Team"
+      }else{
+        play.team = "blue team"
+      }
+      console.log(play)
+    })
+    
+  }
+  
 }
 
 
@@ -83,14 +95,12 @@ const listPeopleChoices = () => {
 }
 
 const makePlayer = (id) => {
-  console.log(`li ${id.age} was clicked!`)
   let players = document.getElementById("players")
   let list = document.getElementById("people")
-  console.log(id)
   if(id.age > 18){
     listOfPlayers.push(id)
     listOfPlayers.map(function(play){
-      play = new player(play.name, play.age,play.skillSet)
+      play = new player(play.name, play.age,play.skillSet,null)
       let li = document.createElement("li")
       let redButton = document.createElement("button")
       let blueButton = document.createElement("button")
@@ -100,21 +110,44 @@ const makePlayer = (id) => {
       li.appendChild(redButton);
       li.appendChild(blueButton);
       players.appendChild(li)
-      lastPlayer = listOfPlayers.pop()
-      playerArray.push(lastPlayer)
-
-      redButton.addEventListener("click", function joinRed(){})
-      blueButton.addEventListener("click",function joinBlue(){})
+      listOfPlayers.pop()
+      playerArray.push(play)
+      
+      redButton.addEventListener("click", function() {joinRed(play)
+      players.removeChild(li)})
+      blueButton.addEventListener("click",function() {joinBlue(play)
+      players.removeChild(li)})
     })  
   }else{
     alert("Must be 18 to play")
-  }
+  } //console.log("in the playerArray   ",playerArray)
+}
+function joinRed(player){
+  let rTeam = document.getElementById("red")
+  let li = document.createElement("li")
+  if(redTeam.length === 3){
+    alert("each team can only have 3 people")
+    rTeam.removeChild(li)
+  } else {
+  redTeam.push(player)
+  li.innerText = `${player.name} - ${player.age}`
+  rTeam.appendChild(li)
+  
+  }  
 }
 
-function joinRed(){
-
+function joinBlue(player){
+  let bTeam = document.getElementById("blue")
+  let li = document.createElement("li")
+   if(blueTeam.length === 3){
+     alert("each team can only have 3 people")
+     bTeam.removeChild(li)
+     return(false)
+   }else{
+     blueTeam.push(player)
+      li.innerText = `${player.name} - ${player.age}`
+      bTeam.appendChild(li)
+      return true
+   }
 }
-
-function joinBlue(){
-
-}
+//console.log(playerArray)
