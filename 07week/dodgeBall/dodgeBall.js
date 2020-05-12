@@ -65,14 +65,13 @@ class player {
 class teammate {
   constructor(){}
   joinTeam(){
-    playerArray.forEach(function(play){
+    //playerArray.forEach(function(play){
       if(joinRed(play)){
-        play.team = "red Team"
+        return play.team =`this players team is red`
       }else{
-        play.team = "blue team"
+        return play.team = "blue"
       }
-      console.log(play)
-    })
+    //})
     
   }
   
@@ -114,7 +113,9 @@ const makePlayer = (id) => {
       playerArray.push(play)
       
       redButton.addEventListener("click", function() {joinRed(play)
-      players.removeChild(li)})
+      players.removeChild(li)
+      
+    })
       blueButton.addEventListener("click",function() {joinBlue(play)
       players.removeChild(li)})
     })  
@@ -150,4 +151,4 @@ function joinBlue(player){
       return true
    }
 }
-//console.log(playerArray)
+console.log(playerArray)
