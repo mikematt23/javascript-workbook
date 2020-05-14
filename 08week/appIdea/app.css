@@ -1,0 +1,22 @@
+section{
+ background-image: url(https://troyautocare.com/wp-content/uploads/2019/06/oil-change-500pxH.jpg);
+ height: 60vh;
+ width: 43%;
+ display: flex;
+ flex-direction: row;
+ align-items: baseline;
+ justify-content: center;
+}
+body{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+}
+h1{
+  color: white;
+}
+h3{
+  color: white;
+}
