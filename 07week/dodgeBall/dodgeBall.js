@@ -49,6 +49,7 @@ const arrOfPeople = [
     placeBorn: "New Orleans, Louisiana"
   },
 ]
+
 const playerArray = []
 const listOfPlayers = []
 const blueTeam = []
@@ -62,21 +63,21 @@ class player {
     this.team = null;
   }
 }
-class teammate {
-  constructor(){}
-  joinTeam(){
-    //playerArray.forEach(function(play){
-      if(joinRed(play)){
-        return play.team =`this players team is red`
-      }else{
-        return play.team = "blue"
-      }
-    //})
-    
-  }
-  
-}
 
+class teammate extends player {
+  constructor(name,age,skill,team,mascot){
+    super(name,age,skill,team)
+    this.mascot = mascot
+  }
+  assignMascot(player){
+    if(player.team === "Red"){
+      player.mascot = "Fire"
+    }else if(player.team = "Blue"){
+      let blueLi = document.getElementsByClassName("blueID")
+      player.mascot = "Ice"
+    }
+  }
+}
 
 const listPeopleChoices = () => {
   const listElement = document.getElementById('people')
@@ -89,7 +90,7 @@ const listPeopleChoices = () => {
     })
     li.appendChild(button)
     li.appendChild(document.createTextNode(person.name + " - " + person.age))
-    listElement.append(li)
+     listElement.append(li)
   })
 }
 
@@ -111,30 +112,36 @@ const makePlayer = (id) => {
       players.appendChild(li)
       listOfPlayers.pop()
       playerArray.push(play)
-      
       redButton.addEventListener("click", function() {joinRed(play)
-      players.removeChild(li)
-      
-    })
+        players.removeChild(li) 
+      })
       blueButton.addEventListener("click",function() {joinBlue(play)
-      players.removeChild(li)})
+        players.removeChild(li)
+      })
     })  
-  }else{
+  }else {
     alert("Must be 18 to play")
-  } //console.log("in the playerArray   ",playerArray)
+  } 
 }
+
 function joinRed(player){
   let rTeam = document.getElementById("red")
   let li = document.createElement("li")
   if(redTeam.length === 3){
     alert("each team can only have 3 people")
     rTeam.removeChild(li)
-  } else {
-  redTeam.push(player)
-  li.innerText = `${player.name} - ${player.age}`
-  rTeam.appendChild(li)
-  
-  }  
+  }else {
+    redTeam.push(player)
+    rTeam.appendChild(li)
+    redTeam.forEach(function(red){
+      redTeam.pop(red)
+      red = new teammate(red.name,red.age,red.skill,red.team,null)
+      red.team = "Red"
+      red.assignMascot(red)
+      redTeam.push(red)
+      li.innerText = `${player.name} - is assigned to ${red.team},${red.mascot}`
+    })
+  }  console.log(redTeam)
 }
 
 function joinBlue(player){
@@ -143,12 +150,18 @@ function joinBlue(player){
    if(blueTeam.length === 3){
      alert("each team can only have 3 people")
      bTeam.removeChild(li)
-     return(false)
    }else{
-     blueTeam.push(player)
-      li.innerText = `${player.name} - ${player.age}`
+      blueTeam.push(player)
       bTeam.appendChild(li)
-      return true
-   }
+      li.classList.add("blueID")
+      blueTeam.forEach(function(blue){
+        blueTeam.pop(blue)
+        blue = new teammate(blue.name,blue.age,blue.skill,blue.team,null)
+        blue.team = "Blue"
+        blue.assignMascot(blue)
+        blueTeam.push(blue)
+        li.innerText = `${player.name} - is assigned to ${blue.team},${blue.mascot}`
+      })
+   } console.log(blueTeam)
 }
-console.log(playerArray)
+
