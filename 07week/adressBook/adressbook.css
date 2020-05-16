@@ -16,9 +16,13 @@ section{
   justify-content: center;
   align-items: center;
   background-color: papayawhip;
+  border-radius: 5%;
 }
 
 h1{
   color: black;
   text-decoration: bold;
+}
+button{
+  border-radius: 20%;
 }
