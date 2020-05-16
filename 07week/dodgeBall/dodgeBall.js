@@ -113,10 +113,18 @@ const makePlayer = (id) => {
       listOfPlayers.pop()
       playerArray.push(play)
       redButton.addEventListener("click", function() {joinRed(play)
-        players.removeChild(li) 
+        if(redTeam.length === 3){
+          players.appendChild(li)
+        } else{
+          players.removeChild(li)
+        } 
       })
       blueButton.addEventListener("click",function() {joinBlue(play)
-        players.removeChild(li)
+        if(blueTeam.length === 3){
+          players.appendChild(li)
+        } else{
+          players.removeChild(li)
+        }
       })
     })  
   }else {
@@ -129,7 +137,7 @@ function joinRed(player){
   let li = document.createElement("li")
   if(redTeam.length === 3){
     alert("each team can only have 3 people")
-    rTeam.removeChild(li)
+    //rTeam.removeChild(li)
   }else {
     redTeam.push(player)
     rTeam.appendChild(li)
@@ -149,7 +157,7 @@ function joinBlue(player){
   let li = document.createElement("li")
    if(blueTeam.length === 3){
      alert("each team can only have 3 people")
-     bTeam.removeChild(li)
+     //bTeam.removeChild(li)
    }else{
       blueTeam.push(player)
       bTeam.appendChild(li)
