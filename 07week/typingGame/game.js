@@ -1,4 +1,4 @@
-'use strict'
+
 
 window.onload= function(){
 people()
@@ -13,7 +13,7 @@ let people = function(){
      processContacts(data.results)
   })
 }
-let body = document.getElementById("body")
+document.getElementById("body")
 function processContacts(contacts){
   console.log(contacts)
   contacts.forEach(function(contact){
